@@ -1,4 +1,4 @@
-package InheritancePolymorphism_PresentsManagement;
+package hometasksOOP.InheritancePolymorphism_PresentsManagement;
 public abstract class Cookie extends Sweet {
     private double doughWeight;
 

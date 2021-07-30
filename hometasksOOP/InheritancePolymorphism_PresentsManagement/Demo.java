@@ -1,4 +1,4 @@
-package InheritancePolymorphism_PresentsManagement;
+package hometasksOOP.InheritancePolymorphism_PresentsManagement;
 import java.util.Arrays;
 
 public class Demo {
