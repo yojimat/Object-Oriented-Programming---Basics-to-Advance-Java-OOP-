@@ -1,4 +1,5 @@
 package methodsExercises;
+
 import java.util.*;
 
 public class ConvertDecimalToRoman {
@@ -40,6 +41,8 @@ public class ConvertDecimalToRoman {
 
             System.out.println("Please, enter 'R2D' or 'D2R.");
         }
+
+        sc.close();
     }
 
     /**

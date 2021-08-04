@@ -6,19 +6,21 @@ import examOOP.menu.Menu;
 public class SignOutMenu implements Menu {
 
 	private ApplicationContext context;
-	
+
 	{
 		context = ApplicationContext.getInstance();
 	}
-	
+
 	@Override
 	public void start() {
-		// <write your code here>
+		printMenuHeader();
+		context.setLoggedInUser(null);
+		context.getMainMenu().start();
 	}
 
 	@Override
 	public void printMenuHeader() {
-		// <write your code here>	
+		System.out.println("Have a nice day! Look forward to welcoming back!");
 	}
 
 }

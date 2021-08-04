@@ -26,7 +26,7 @@ public class SignInMenu implements Menu {
 
 		if (savedUser != null && userCredentialsAreCorrect(credentialsPair[1], savedUser)) {
 			context.setLoggedInUser(savedUser);
-			System.out.println("Glad to see you back" + savedUser.getFirstName() + savedUser.getLastName());
+			System.out.println("Glad to see you back " + savedUser.getFirstName() + " " + savedUser.getLastName());
 		} else
 			System.out.println("Unfortunately, such login and password doesn't exist.");
 

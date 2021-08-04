@@ -3,7 +3,7 @@ package examOOP.enteties.impl;
 import examOOP.enteties.Product;
 
 public class DefaultProduct implements Product {
-	
+
 	private int id;
 	private String productName;
 	private String categoryName;
@@ -11,15 +11,17 @@ public class DefaultProduct implements Product {
 
 	public DefaultProduct() {
 	}
-	
+
 	public DefaultProduct(int id, String productName, String categoryName, double price) {
-		// <write your code here>
+		this.id = id;
+		this.productName = productName;
+		this.categoryName = categoryName;
+		this.price = price;
 	}
 
 	@Override
 	public String toString() {
-		// <write your code here>
-		return null;
+		return "Product [Id= " + id + ", Name= " + productName + ", Category= " + categoryName + ", Price= " + price;
 	}
 
 	@Override
@@ -31,6 +33,4 @@ public class DefaultProduct implements Product {
 	public String getProductName() {
 		return this.productName;
 	}
-
-	
 }

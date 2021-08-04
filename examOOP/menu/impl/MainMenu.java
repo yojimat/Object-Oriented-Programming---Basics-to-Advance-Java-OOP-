@@ -1,5 +1,6 @@
 package examOOP.menu.impl;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 import examOOP.Main;
@@ -47,7 +48,6 @@ public class MainMenu implements Menu {
 			System.out.println(MAIN_MENU_TEXT_FOR_LOGGED_OUT_USER);
 		else
 			System.out.println(MAIN_MENU_TEXT_FOR_LOGGED_IN_USER);
-
 	}
 
 	private void selectMenuItem(String command) {
@@ -60,6 +60,9 @@ public class MainMenu implements Menu {
 					new SignInMenu().start();
 				else
 					new SignOutMenu().start();
+				break;
+			case "3":
+				new ProductCatalogMenu().start();
 				break;
 			default:
 				System.out.println("Only 1, 2, 3, 4, 5 is allowed. Try one more time.");

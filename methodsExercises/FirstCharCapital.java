@@ -8,6 +8,7 @@ public class FirstCharCapital {
         String userInput = sc.nextLine();
 
         System.out.println(firstCharToTitleCase(userInput));
+        sc.close();
     }
 
     public static String firstCharToTitleCase(String string) {
