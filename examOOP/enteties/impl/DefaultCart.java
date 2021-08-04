@@ -18,9 +18,11 @@ public class DefaultCart implements Cart {
 
 	@Override
 	public boolean isEmpty() {
-		// <write your code here>
+		if (lastIndexAdded == 0) {
+			return true;
+		}
 
-		return true;
+		return false;
 	}
 
 	@Override
@@ -53,7 +55,7 @@ public class DefaultCart implements Cart {
 
 	@Override
 	public void clear() {
-		// <write your code here>
+		products = new Product[DEFAULT_PRODUCTS_CAPACITY];
 	}
 
 }

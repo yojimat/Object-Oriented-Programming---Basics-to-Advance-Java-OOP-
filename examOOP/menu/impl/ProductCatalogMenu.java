@@ -33,13 +33,17 @@ public class ProductCatalogMenu implements Menu {
 
 		if (command.equals(MainMenu.MENU_COMMAND)) {
 			context.getMainMenu().start();
+			sc.close();
+			return;
+		}
+
+		if (command.equals(CHECKOUT_COMMAND)) {
+			goToCheckotMenu();
+			sc.close();
+			return;
 		}
 
 		addProductToCart(command);
-
-		if (command.equals(CHECKOUT_COMMAND)) {
-			// TODO
-		}
 
 		sc.close();
 	}
@@ -75,5 +79,17 @@ public class ProductCatalogMenu implements Menu {
 			System.out.println("Please enter a correct id.");
 		}
 		start();
+	}
+
+	private void goToCheckotMenu() {
+		if (context.getSessionCart().isEmpty()) {
+			System.out.println("Your cart is empty. Please, add a product to cart first an then proceed with checkout");
+			start();
+		} else if (context.getLoggedInUser() == null) {
+			System.out.println("You are not logged in. Please, sign in or create a new account.");
+			context.getMainMenu().start();
+		} else {
+			new CheckoutMenu().start();
+		}
 	}
 }

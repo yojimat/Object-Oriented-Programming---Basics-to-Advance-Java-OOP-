@@ -6,46 +6,48 @@ import examOOP.enteties.Product;
 public class DefaultOrder implements Order {
 
 	private static final int AMOUNT_OF_DIGITS_IN_CREDIT_CARD_NUMBER = 16;
-	
+
 	private String creditCardNumber;
 	private Product[] products;
 	private int customerId;
 
 	@Override
 	public boolean isCreditCardNumberValid(String creditCardNumber) {
-		// <write your code here>
-		return false;
+		if (creditCardNumber.length() != AMOUNT_OF_DIGITS_IN_CREDIT_CARD_NUMBER) {
+			return false;
+		}
+		for (char charDigit : creditCardNumber.toCharArray()) {
+			int digit = Character.getNumericValue(charDigit);
+			if(digit < 0 )
+				return false;
+		}
+		return true;
 	}
 
 	@Override
 	public void setCreditCardNumber(String creditCardNumber) {
-		// <write your code here>
+		this.creditCardNumber = creditCardNumber;
 	}
 
 	@Override
 	public void setProducts(Product[] products) {
-		// <write your code here>
+		this.products = products;
 	}
 
 	@Override
 	public void setCustomerId(int customerId) {
-		// <write your code here>
+		this.customerId = customerId;
 	}
-
 
 	@Override
 	public int getCustomerId() {
 		return this.customerId;
 	}
-	
+
 	@Override
 	public String toString() {
-		// <write your code here>
-		return null;
+		return "Order [customerId=" + customerId + ", creditCardNumber=" + creditCardNumber + ", products=" + products
+				+ "]";
 	}
-
-	
-	
-	
 
 }
