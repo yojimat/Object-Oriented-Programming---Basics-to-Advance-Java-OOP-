@@ -1,6 +1,8 @@
 package examOOP.menu.impl;
 
 import examOOP.configs.ApplicationContext;
+import examOOP.enteties.Order;
+import examOOP.enteties.User;
 import examOOP.menu.Menu;
 import examOOP.services.OrderManagementService;
 import examOOP.services.impl.DefaultOrderManagementService;
@@ -17,12 +19,31 @@ public class MyOrdersMenu implements Menu {
 
 	@Override
 	public void start() {
-		// <write your code here>
+		printMenuHeader();
+		User loggedInUser = context.getLoggedInUser();
+		if (loggedInUser != null) {
+			getAllPurchaseOrders(loggedInUser.getId());
+		} else {
+			System.out.println("Please, log in or create a new account to see the list of your orders.");
+		}
+
+		context.getMainMenu().start();
 	}
 
 	@Override
 	public void printMenuHeader() {
-		// <write your code here>		
+		System.out.println("My orders");
 	}
 
+	private void getAllPurchaseOrders(int userId) {
+		Order[] orders = orderManagementService.getOrdersByUserId(userId);
+
+		if (orders.length <= 0) {
+			System.out.println("Unfortunately, you dont'have any orders yet. Navigate back to main menu to place a new order.");
+		}
+
+		for(Order order : orders) {
+			System.out.println(order);
+		}
+	}
 }

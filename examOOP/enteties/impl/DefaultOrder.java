@@ -46,8 +46,17 @@ public class DefaultOrder implements Order {
 
 	@Override
 	public String toString() {
-		return "Order [customerId=" + customerId + ", creditCardNumber=" + creditCardNumber + ", products=" + products
+		return "Order [customerId=" + customerId + ", creditCardNumber=" + creditCardNumber + ", products=" + getStringProducts()
 				+ "]";
+	}
+
+	private String getStringProducts() {
+		StringBuilder output = new StringBuilder();
+		for (Product product : products) {
+			output.append(String.valueOf(product));
+		}
+
+		return output.toString();
 	}
 
 }
