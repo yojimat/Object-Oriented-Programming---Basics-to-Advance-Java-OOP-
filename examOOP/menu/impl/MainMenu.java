@@ -65,6 +65,13 @@ public class MainMenu implements Menu {
 				break;
 			case "4":
 				new MyOrdersMenu().start();
+				break;
+			case "5":
+				new SettingsMenu().start();
+				break;
+			case "6":
+				new CustomerListMenu().start();
+				break;
 			default:
 				System.out.println("Only 1, 2, 3, 4, 5 is allowed. Try one more time.");
 				start();
