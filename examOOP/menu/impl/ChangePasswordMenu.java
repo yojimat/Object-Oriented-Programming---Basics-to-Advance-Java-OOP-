@@ -1,5 +1,7 @@
 package examOOP.menu.impl;
 
+import java.util.Scanner;
+
 import examOOP.configs.ApplicationContext;
 import examOOP.menu.Menu;
 
@@ -13,12 +15,20 @@ public class ChangePasswordMenu implements Menu {
 
 	@Override
 	public void start() {
-		// <write your code here>
+		printMenuHeader();
+		changePassword();
+		System.out.println("Your password has been successfully changed.");
+		context.getMainMenu().start();
 	}
 
 	@Override
 	public void printMenuHeader() {
-		// <write your code here>		
+		System.out.println("Enter new password:");
 	}
 
+	private void changePassword() {
+		Scanner scanner = new Scanner(System.in);
+		String password = scanner.next();
+		context.getLoggedInUser().setPassword(password);
+	}
 }

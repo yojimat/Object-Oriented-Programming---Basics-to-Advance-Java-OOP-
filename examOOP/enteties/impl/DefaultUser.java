@@ -46,16 +46,20 @@ public class DefaultUser implements User {
 
 	@Override
 	public String toString() {
-		return "User [fullName=" + firstName + lastName + "]";
+		return "First Name: " + getFirstName() + "\t\t" +
+				"Last Name: " + getLastName() + "\t\t" +
+				"Email: " + getEmail();
 	}
 
 	@Override
 	public void setPassword(String password) {
+		if(password == null) return;
 		this.password = password;
 	}
 
 	@Override
 	public void setEmail(String newEmail) {
+		if(newEmail == null) return;
 		email = newEmail;
 	}
 
@@ -65,6 +69,7 @@ public class DefaultUser implements User {
 	}
 
 	void clearState() {
+		// Só precisava setar o id para zero T-T
 		firstName = "";
 		lastName = "";
 		password = "";

@@ -21,7 +21,8 @@ public class DefaultProduct implements Product {
 
 	@Override
 	public String toString() {
-		return "Product [Id= " + id + ", Name= " + productName + ", Category= " + categoryName + ", Price= " + price + "] ";
+		return "Product id=" + id + ", product name=" + productName
+				+ ", category name=" + categoryName + ", price=" + price;
 	}
 
 	@Override

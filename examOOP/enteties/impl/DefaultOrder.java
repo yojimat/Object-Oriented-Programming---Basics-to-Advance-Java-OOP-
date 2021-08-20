@@ -1,5 +1,7 @@
 package examOOP.enteties.impl;
 
+import java.util.Arrays;
+
 import examOOP.enteties.Order;
 import examOOP.enteties.Product;
 
@@ -21,11 +23,16 @@ public class DefaultOrder implements Order {
 			if(digit < 0 )
 				return false;
 		}
+		// Solução
+		// return creditCardNumber.toCharArray().length == AMOUNT_OF_DIGITS_IN_CREDIT_CARD_NUMBER && 
+				// !creditCardNumber.contains(" ") && Long.parseLong(creditCardNumber) > 0;
 		return true;
 	}
 
 	@Override
 	public void setCreditCardNumber(String creditCardNumber) {
+		if(creditCardNumber == null) return;
+
 		this.creditCardNumber = creditCardNumber;
 	}
 
@@ -46,17 +53,19 @@ public class DefaultOrder implements Order {
 
 	@Override
 	public String toString() {
-		return "Order [customerId=" + customerId + ", creditCardNumber=" + creditCardNumber + ", products=" + getStringProducts()
-				+ "]";
+		// Corrigido
+		return "Order: customer id - " + this.customerId + "\t" +
+					"credit card number - " + this.creditCardNumber + "\t" + 
+					"products - " + Arrays.toString(products);
 	}
 
-	private String getStringProducts() {
-		StringBuilder output = new StringBuilder();
-		for (Product product : products) {
-			output.append(String.valueOf(product));
-		}
+	// Método criado para primeira solução T-T para conseguir extrair o string dos produtos.
+	// private String getStringProducts() {
+	// 	StringBuilder output = new StringBuilder();
+	// 	for (Product product : products) {
+	// 		output.append(String.valueOf(product));
+	// 	}
 
-		return output.toString();
-	}
-
+	// 	return output.toString();
+	// }
 }

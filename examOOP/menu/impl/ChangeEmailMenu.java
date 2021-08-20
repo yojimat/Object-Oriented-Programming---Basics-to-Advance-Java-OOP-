@@ -1,8 +1,12 @@
 package examOOP.menu.impl;
 
+import java.util.Scanner;
+
 import examOOP.configs.ApplicationContext;
 import examOOP.menu.Menu;
 
+
+// Esqueci totalmente deste menu, mas de acordo com a solução ele faz todo sentido semântico
 public class ChangeEmailMenu implements Menu {
 
 	private ApplicationContext context;
@@ -13,12 +17,20 @@ public class ChangeEmailMenu implements Menu {
 
 	@Override
 	public void start() {
-		// <write your code here>
+		printMenuHeader();
+		changeEmail();	
+		System.out.println("Your email has been successfully changed.");
+		context.getMainMenu().start();
 	}
 
 	@Override
 	public void printMenuHeader() {
-		// <write your code here>
+		System.out.println("Enter new email:");
 	}
 
+	private void changeEmail() {
+		Scanner scanner = new Scanner(System.in);
+		String email = scanner.nextLine();
+		context.getLoggedInUser().setEmail(email);
+	}
 }

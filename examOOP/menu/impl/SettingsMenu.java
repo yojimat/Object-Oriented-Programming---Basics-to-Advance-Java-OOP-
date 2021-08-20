@@ -33,33 +33,15 @@ public class SettingsMenu implements Menu {
 		System.out.println(SETTINGS);
 	}
 
-	private void changePassword() {
-		System.out.println("Enter new password:");
-		Scanner scanner = new Scanner(System.in);
-		String password = scanner.nextLine();
-		context.getLoggedInUser().setPassword(password);
-		System.out.println("Your password has been successfully changed.");
-		context.getMainMenu().start();
-	}
-
-	private void changeEmail() {
-		System.out.println("Enter new email:");
-		Scanner scanner = new Scanner(System.in);
-		String email = scanner.nextLine();
-		context.getLoggedInUser().setEmail(email);
-		System.out.println("Your email has been successfully changed.");
-		context.getMainMenu().start();
-	}
-
 	private void selectMenuItem() {
 		Scanner scanner = new Scanner(System.in);
 		String choosenOption = scanner.nextLine();
 		switch (choosenOption) {
 			case "1":
-				changePassword();
+				new ChangePasswordMenu().start();
 				break;
 			case "2":
-				changeEmail();
+				new ChangeEmailMenu().start();
 				break;
 			case "menu":
 				context.getMainMenu().start();
