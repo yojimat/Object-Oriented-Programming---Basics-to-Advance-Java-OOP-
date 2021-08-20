@@ -73,4 +73,8 @@ public class DefaultProductManagementService implements ProductManagementService
 		return null;
 	}
 
+	void clearServiceState() {
+		instance = null;		
+	}
+
 }

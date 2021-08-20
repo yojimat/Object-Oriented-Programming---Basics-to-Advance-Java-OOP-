@@ -49,4 +49,9 @@ public class ApplicationContext {
 		return this.sessionCart;
 	}
 
+	void clearServiceState() {
+		loggedInUser = null;
+		mainMenu = null;
+		sessionCart = null;
+	}
 }

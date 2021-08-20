@@ -79,6 +79,8 @@ public class DefaultUserManagementService implements UserManagementService {
 
 	void clearServiceState() {
 		users = new User[DEFAULT_USERS_CAPACITY];
+		lastIndexAdded = 0;
+		instance = null;
 	}
 
 	private void addUser(User user) {

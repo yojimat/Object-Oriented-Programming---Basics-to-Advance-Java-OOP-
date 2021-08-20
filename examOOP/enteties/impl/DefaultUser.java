@@ -46,7 +46,7 @@ public class DefaultUser implements User {
 
 	@Override
 	public String toString() {
-		return "User [name=" + firstName + lastName + ", email=" + email + ", password=" + password + "]";
+		return "User [fullName=" + firstName + lastName + "]";
 	}
 
 	@Override
@@ -65,9 +65,10 @@ public class DefaultUser implements User {
 	}
 
 	void clearState() {
-		this.firstName = "";
-		this.lastName = "";
-		this.password = "";
-		this.email = "";
+		firstName = "";
+		lastName = "";
+		password = "";
+		email = "";
+		id = 0;
 	}
 }

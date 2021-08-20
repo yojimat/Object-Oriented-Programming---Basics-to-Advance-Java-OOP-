@@ -69,7 +69,9 @@ public class DefaultOrderManagementService implements OrderManagementService {
 	}
 
 	void clearServiceState() {
-		// <write your code here>
+		instance = null;
+		orders = new Order[DEFAULT_ORDER_CAPACITY];
+		lastIndexAdded = 0;
 	}
 
 }
